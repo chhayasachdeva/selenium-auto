@@ -2,20 +2,23 @@ package com.automation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Browser {
 
     public static void main(String[] args) {
-
         Browser browser=new Browser();
-        browser.openApplication();
+        browser.openApplication("");
     }
 
-    public WebDriver openApplication() {
+    /**
+     * Create new object and open browser
+     * @return
+     */
+    public WebDriver openApplication(String url) {
+        System.setProperty("webdriver.chrome.driver", "D:\\workspace\\selenium-auto\\etc\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "\\etc\\chromedriver.exe");
-        driver.get("https://www.dsw.com/en/us/");
+        // open application
+        driver.get(url);
         return driver;
     }
 }
